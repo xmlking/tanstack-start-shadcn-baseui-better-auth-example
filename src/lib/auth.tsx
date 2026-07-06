@@ -3,7 +3,8 @@ import { passkey } from "@better-auth/passkey"
 import { MagicLinkEmail, ResetPasswordEmail } from "@better-auth-ui/react/email"
 import { render } from "@react-email/render"
 import { betterAuth } from "better-auth"
-import { drizzleAdapter } from "better-auth/adapters/drizzle"
+// import { drizzleAdapter } from "better-auth/adapters/drizzle"
+import { drizzleAdapter } from "@better-auth/drizzle-adapter/relations-v2";
 import {
   magicLink,
   multiSession,
@@ -23,12 +24,9 @@ const baseURL = process.env.VITE_BETTER_AUTH_URL;
  
 
 export const auth = betterAuth({
-    baseURL,
-  database: drizzleAdapter(db, {
-    provider: "pg",
-    schema: schema,
-    // usePlural: false
-  }),
+  baseURL,
+  database: drizzleAdapter(db, { provider: "pg", schema }),
+  experimental: { joins: true },
   emailAndPassword: {
     enabled: true,
     sendResetPassword: async ({ user, url }) => {

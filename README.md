@@ -2,6 +2,10 @@ Welcome to your new TanStack app!
 
 # Getting Started
 
+```bash
+bun add -g @dotenv-run/cli
+```
+
 To run this application:
 
 ```bash
