@@ -13,7 +13,7 @@ export const settings = snakeCase.table(
   (t) => ({
     key: t.text().notNull(),
     organizationId: t
-      .uuid()
+      .text()
       .notNull()
       .references(() => organization.id, { onDelete: "cascade" }),
     documentation: t.text(),

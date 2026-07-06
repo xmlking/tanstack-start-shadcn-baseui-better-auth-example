@@ -14,7 +14,7 @@ import {
 
 import { db } from "./db"
 import { transporter } from "./mail"
-import * as schema from "./schema"
+import * as schema from "./schema/index"
 
 const mailFrom = process.env.MAIL_FROM ?? "Better Auth UI <noreply@localhost>"
 

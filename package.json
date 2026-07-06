@@ -7,7 +7,7 @@
     "build": "vite build",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
-    "generate": "dotenv-run -f .env -v -- drizzle-kit generate",
+    "generate": "dotenv-run -f .env -v -- drizzle-kit generate --name=init",
     "migrate": "dotenv-run -f .env -v -- drizzle-kit migrate",
     "up": "dotenv-run -f .env -v -- drizzle-kit up",
     "generate-auth-schema": "dotenv-run -f .env -v -- bun x auth@v1.7.0-rc.1 generate --config src/lib/auth.tsx --output src/lib/schema/auth.ts -y"
