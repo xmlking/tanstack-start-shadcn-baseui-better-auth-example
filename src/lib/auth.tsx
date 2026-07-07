@@ -231,12 +231,12 @@ export const auth = betterAuth({
     jwt({
       jwt: {
         definePayload: async ({ user, session }) => {
-          const member = await db.query.member.findFirst({
+          const member = session.activeOrganizationId ? await db.query.member.findFirst({
             where: {
               userId: user.id,
               organizationId: session.activeOrganizationId,
             },
-          });
+          }) : null;
 
           // Only include essential user information for API authentication
           return {
